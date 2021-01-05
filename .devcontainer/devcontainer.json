@@ -1,0 +1,10 @@
+{
+    "image": "feabhas/gcc9-arm-scons",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "ms-vscode.cpptools",
+        "ms-python.python",
+    ],
+}

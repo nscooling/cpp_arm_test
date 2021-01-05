@@ -1,0 +1,21 @@
+Import('*')
+
+# -----------------------------------------------------------------------------------
+# Get the current working directory
+# 
+sconscript_cwd = Dir('.').srcnode().abspath
+
+# -----------------------------------------------------------------------------------
+# Board Support files
+# 
+includes += [sconscript_cwd + '/include']
+includes += [sconscript_cwd + '/include/arm']
+includes += [sconscript_cwd + '/include/cmsis']
+includes += [sconscript_cwd + '/include/cortexm']
+includes += [sconscript_cwd + '/include/diag']
+includes += [sconscript_cwd + '/include/stm32f4xx']
+
+sources += Glob('src/cmsis/*.c')
+sources += Glob('src/cortexm/*.c')
+sources += Glob('src/diag/*.c')
+sources += Glob('src/newlib/*.c')

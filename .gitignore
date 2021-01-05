@@ -1,0 +1,5 @@
+*.o
+*.su
+*.d
+.sconsign.dblite
+build/

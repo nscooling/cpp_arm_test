@@ -1,0 +1,38 @@
+import os
+
+Import('*')
+
+
+
+sconscript_cwd = Dir('.').srcnode().abspath
+
+
+# -------------------------------------------------------------------------------------
+# FreeRTOS
+#
+includes += [sconscript_cwd + '/freertos_cortex_m4/FreeRTOS/Source/CMSIS_RTOS']
+includes += [sconscript_cwd + '/freertos_cortex_m4/FreeRTOS/Source/include']
+includes += [sconscript_cwd + '/freertos_cortex_m4/FreeRTOS/Source/portable/GCC/ARM_CM3']
+
+sources += Glob('freertos_cortex_m4/FreeRTOS/Source/*.c')
+sources += Glob('freertos_cortex_m4/FreeRTOS/Source/portable/GCC/ARM_CM3/*.c')
+
+# pulling in a single named file has to have its absolute path set
+# 
+sources += Glob('freertos_cortex_m4/FreeRTOS/Source/portable/MemMang/*_3.c')
+
+
+
+# -------------------------------------------------------------------------------------
+# FeabhOS
+#
+includes += [sconscript_cwd + '/feabhos/C/inc']
+includes += [sconscript_cwd + '/feabhos/C/platform/FreeRTOS/inc']
+includes += [sconscript_cwd + '/feabhos/C++14/inc']
+
+
+# FeabhOS C++14 is header-only
+#
+sources += Glob('feabhos/C/platform/FreeRTOS/src/*.c')
+
+
